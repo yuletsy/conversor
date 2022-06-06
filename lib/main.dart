@@ -1,4 +1,5 @@
 import 'package:conversor/home_page/home_page.dart';
+import 'package:conversor/widgets/drop_down.dart';
 import 'package:flutter/material.dart';
 
 import 'services/api_currency.dart';
@@ -91,11 +92,13 @@ class _HomePageState extends State<HomePage> {
                           ),
                           Row(
                             children: [
-                              // customDropDown(currencies, from, (item) {
-                              //   setState(() {
-                              //     from = item;
-                              //   });
-                              // })
+                              customDropDown(currencies, from, (val) {
+                                setState(() {
+                                  from = val;
+                                });
+
+                              }),
+                              FloatingActionButton(onPressed: (){}, child: Icon(Icons.swap_horiz),),
                             ],
                           ),
                           SizedBox(height: 50.0),
@@ -122,54 +125,3 @@ class _HomePageState extends State<HomePage> {
                 ))));
   }
 }
-
-//         appBar: AppBar(
-//           title: Text('Conversor Divisas'),
-//         ),
-//         body: ListView(children: [
-//           Container(child: Form(key: formKey, child: Column(children: [])))
-//         ]));
-//   }
-
-//   Widget obtenerPrimeraDivisa() {
-//     return TextFormField(
-//       keyboardType: TextInputType.text,
-//       decoration: InputDecoration(labelText: 'Primera Divisa', hintText: ""),
-//       validator: (value) {
-//         String patron = r'^[^@]+@[^@]+\.[^@]+$';
-//         RegExp regExp = RegExp(patron);
-//         if (regExp.hasMatch(value!)) {
-//           return null;
-//         } else {
-//           return 'Email incorrecto';
-//         }
-//       },
-//     );
-//   }
-
-//   Widget obtenerCampoPass() {
-//     return TextFormField(
-//       keyboardType: TextInputType.text,
-//       obscureText: true,
-//       decoration: InputDecoration(labelText: "Contraseña"),
-//       validator: (value) {
-//         if (value!.length > 5) {
-//           return null;
-//         } else {
-//           return 'Contraseña muy corta';
-//         }
-//       },
-//     );
-//   }
-
-//   Widget obtenerBoton() {
-//     return ElevatedButton(
-//         child: Text("Validar"),
-//         onPressed: () {
-//           if (formKey.currentState!.validate()) {
-//             formKey.currentState!.reset();
-//           }
-//         });
-//   }
-// }
-
