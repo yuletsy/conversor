@@ -16,6 +16,7 @@ Widget customDropDown(
         onChange(val);
       },
       items: items
+
           .map<DropdownMenuItem<String>>(
             (String val) {
             return DropdownMenuItem(
@@ -26,13 +27,26 @@ Widget customDropDown(
           ).toList(),
     ),
   );
-}
+  }
+  
+// }
+// items:items
+//           .map(
+//             (item) => DropdownMenuItem(
+//               value: item,
+//               child: Text(item),
+//             ),
+//           )
+//           .toList(),
+
+
 // items: items.map<DropdownItem<String>>((String item) {
 //             return DropdownMenuItem(
 //               child: Text(item),
 //               value: item,
 //             );
 //           }).toList(),
+
 //  items: items
 //           .map<DropdownMenuItem<String>>(
 //             (String val) => DropdownMenuItem(
@@ -41,3 +55,4 @@ Widget customDropDown(
 //             ),
 //           )
 //           .toList(),
+
