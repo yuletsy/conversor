@@ -91,6 +91,8 @@ class _HomePageState extends State<HomePage> {
                             height: 20.0,
                           ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                             children: [
                               customDropDown(currencies, from, (val) {
                                 setState(() {
@@ -98,7 +100,20 @@ class _HomePageState extends State<HomePage> {
                                 });
 
                               }),
-                              FloatingActionButton(onPressed: (){}, child: Icon(Icons.swap_horiz),),
+                              FloatingActionButton(onPressed: (){
+                                String temp = from;
+                                setState(() {
+                                  from = to ;
+                                  to = temp;
+                                });
+                              }, child: Icon(Icons.swap_horiz),elevation: 0.0,
+                              backgroundColor: secondaryColor,),
+                              customDropDown(currencies, to, (val) {
+                                setState(() {
+                                  to = val;
+                                });
+
+                              }),
                             ],
                           ),
                           SizedBox(height: 50.0),
