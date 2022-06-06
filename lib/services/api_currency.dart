@@ -10,7 +10,7 @@ class ApiClient {
     http.Response res = await http.get(currencyURL);
     if (res.statusCode == 200) {
       var body = jsonDecode(res.body);
-      var list = body["results"];
+      var list = body["Results"];
       List<String> currencies = (list.keys.toList());
       print(currencies);
       return currencies;
