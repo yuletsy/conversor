@@ -20,12 +20,13 @@ Widget customDropDown(List<String> items, String value, void onChange(item),
             ),
           )
           .toList(),
-    ),
-  );
-}
+
 // items: items.map<DropdownItem<String>>((String item) {
 //             retutn DropdownMenuItem(
 //               child: Text(item),
 //               value: item,
 //             );
 //           }).toList(),
+    ),
+  );
+}
