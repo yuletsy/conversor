@@ -4,7 +4,6 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'package:conversor/services/listCurrencyAPI.dart';
 import 'currencyAPI.dart';
-import 'listCurrency.dart';
 
 class ProviderApi {
   Future<ListCurrency> getCurrencies() async {

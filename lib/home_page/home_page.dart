@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:conversor/widgets/drop_down.dart';
 import 'package:conversor/services/api_currency.dart';
 
 class HomePage extends StatefulWidget {
