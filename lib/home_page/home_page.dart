@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               Text("Currency Converter",
-                  style: TextStyle(fontSize: 30, color: Colors.black)),
+                  style: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold)),
               SizedBox(
                 height: 15,
               ),
@@ -48,7 +48,11 @@ class _HomePageState extends State<HomePage> {
                 height: 15,
               ),
              
-              
+              TextButton(onPressed: (){
+                setState(() {
+                  Text("YULETSY PABON");
+                });
+              }, child: Text("TEXT")),
               // DropdownButton<String>(
               //     value: valueschoose,
               //     items: <String>['Pesos', 'Pesos Colombianos']
