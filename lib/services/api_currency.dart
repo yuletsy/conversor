@@ -1,31 +1,34 @@
 import 'dart:convert';
-
+import 'package:conversor/home_page/home_page.dart';
 import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'package:conversor/services/listCurrencyAPI.dart';
+import 'currencyAPI.dart';
+import 'listCurrency.dart';
 
-class ApiClient {
-  final Uri currencyURL = Uri.https("free.currconv.com", "api/v7/currencies",
-      {"apiKey": "73371dec8ff9feee74f7"});
+class ProviderApi {
+  Future<ListCurrency> getCurrencies() async {
+    try {
+      var url = Uri.parse("https://exchangecurrenciesdemo.herokuapp.com/api/convert/usd/cop");
 
-  Future<List<String>> getCurrencies() async {
-    http.Response res = await http.get(currencyURL);
-    if (res.statusCode == 200) {
-      var body = jsonDecode(res.body);
-      var list = body["Results"];
-      List<String> currencies = (list.keys.toList());
-      print(currencies);
-      return currencies;
-    } else {
-      throw Exception("Failed to connect to API ");
+      var responseHttp = await http.get(url);
+
+      String rawResponse = utf8.decode(responseHttp.bodyBytes);
+
+      var jsonResponse = jsonDecode(rawResponse);
+
+      ListCurrency currencyResponse =
+          ListCurrency.fromAPI(jsonResponse);
+
+      return currencyResponse;
+    } catch (ex) {
+      return ListCurrency.vacio();
     }
   }
 
   Future<double> getRate(String from, String to) async {
-    final Uri rateURL = Uri.https('free.currconv.com', 'api/v7/convert', {
-      "apiKey": "73371dec8ff9feee74f7",
-      "q": "${from}_${to}",
-      "compact ": "ultra"
-    });
-    http.Response res = await http.get(rateURL);
+    final Uri rateURL = Uri.parse('https://exchangecurrenciesdemo.herokuapp.com/api/convert/usd/cop');
+    var res = await http.get(rateURL);
     if (res.statusCode == 200) {
       var body = jsonDecode(res.body);
       return body["${from}_${to}"];

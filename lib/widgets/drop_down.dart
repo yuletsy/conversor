@@ -10,7 +10,7 @@ Widget customDropDown(
     padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 18.0),
     decoration: BoxDecoration(
         color: Colors.white, borderRadius: BorderRadius.circular(8.0)),
-    child: DropdownButton<String>(
+    child: DropdownButton(
       value: value,
       onChanged:(String? val) {
         onChange(val);
